@@ -223,21 +223,11 @@ export default function ToDoList() {
                         <p style={{ fontSize: isSmallScreen ? '1em' : '1.5em', margin: '15px 0 0 0', fontWeight: '600' }}>No tasks yet!</p>
                         <p style={{ fontSize: isSmallScreen ? '0.9em' : '1.1em', margin: '8px 0 0 0' }}>Add one to get started 🚀</p>
                     </div>
-                            boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
-                            whiteSpace: 'nowrap'
-                        }}
-                        onMouseOver={(e) => {
-                            e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
-                        }}
-                        onMouseOut={(e) => {
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.4)';
-                        }}
-                    >
-                        Add
-                    </button>
-                </div>
+                )}
+            </div>
+        </div>
+    );
+}
 
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                     {todos.map((todo, index) => (
