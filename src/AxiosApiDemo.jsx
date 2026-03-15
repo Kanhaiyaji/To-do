@@ -1,8 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function ToDoList() {
     const [todos, setTodos] = useState([]);
     const [input, setInput] = useState('');
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
+
+    // Handle window resize for responsive layout
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const addTodo = () => {
         if (input.trim()) {
@@ -20,8 +31,6 @@ export default function ToDoList() {
     const deleteTodo = (id) => {
         setTodos(todos.filter(todo => todo.id !== id));
     };
-
-    const isSmallScreen = window.innerWidth < 768;
 
     return (
         <div style={{
